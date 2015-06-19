@@ -1,28 +1,23 @@
 #pragma once
 
-#include <vector>
-
-#include "Engine.h"
-#include "Actor.h"
-
-using namespace std;
-
-class Engine;
+class UpdateManager;
+class RenderManager;
 
 class World
 {
 public:
 	World();
-	World(Engine* engine);
+	World(UpdateManager*, RenderManager*);
 	~World();
+	
+	void SetUpdateManager(UpdateManager*);
+	void SetRenderManager(RenderManager*);
+
+	void StartGame();
 private:
-	Engine* engine;
+	bool gameIsFinished;
 
-	vector<Actor*> leftSideEnemies;
-	vector<Actor*> rightSideEnemies;
-	vector<Actor*> topSideEnemies;
-	vector<Actor*> botSideEnemies;
-
-	vector<vector<Actor*>> enemies;
+	UpdateManager* updateManager;
+	RenderManager* renderManager;
 };
 

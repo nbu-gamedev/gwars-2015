@@ -5,48 +5,53 @@
 
 #include "Settings.h"
 #include "World.h"
-#include "Engine.h"
+#include "UpdateManager.h"
+#include "RenderManager.h"
 #include "Kamikadze.h"
 #include "SDLExceptions.h"
+#include "File.h"
+#include "Actor.h"
 
 using namespace std;
+
+void CatchFatalExceptions(exception& e)
+{
+	cout << e.what() << endl;
+	exit(-1);
+}
 
 int main(int argc, char* args[])
 {
 	const int SCREEN_WIDTH = 640;
 	const int SCREEN_HEIGHT = 480;
 
-	Settings settings(SCREEN_WIDTH, SCREEN_HEIGHT);	
+	World* world = new World();
 
 	try
 	{
-		Engine* engine = new Engine(settings);
+		RenderManager* renderManager = new RenderManager(SCREEN_WIDTH, SCREEN_HEIGHT);
+		UpdateManager* updateManager = new UpdateManager();
 
-		RenderManager* renderManager = new RenderManager(engine, SCREEN_WIDTH, SCREEN_HEIGHT);
+		world->SetUpdateManager(updateManager);
+		world->SetRenderManager(renderManager);
 
-		World* world = new World(engine);
-
-		engine->SetWorld(world);
-		engine->SetRenderManager(renderManager);
-
-		// Update the background
-		renderManager->Render("universe.png");
-
-		// Create and draw the player
-		Actor* player = new Kamikadze(300, 300, "ship.png");
-		renderManager->Render(player);
-
-		player->Update();
+		world->StartGame();
 		
+		Actor* pesho = new Actor();
+		Actor* gosho = new Actor();		
+
+		delete world;
 	}
 	catch (SDLInitialiseException& e)
 	{
-		cout << e.what() << endl;
+		CatchFatalExceptions(e);
 	}
 	catch (SDLWindowCreateException& e)
 	{
-		cout << e.what() << endl;
+		CatchFatalExceptions(e);		
 	}
+
+	delete world;
 
 	return 0;
 }

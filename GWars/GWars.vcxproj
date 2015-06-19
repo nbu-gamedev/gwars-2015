@@ -71,21 +71,28 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Actor.cpp" />
-    <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="File.cpp" />
     <ClCompile Include="GWars.cpp" />
     <ClCompile Include="Kamikadze.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="Settings.cpp" />
     <ClCompile Include="Shooter.cpp" />
+    <ClCompile Include="UpdateManager.cpp" />
     <ClCompile Include="World.cpp" />
     <ClInclude Include="Actor.h" />
-    <ClInclude Include="Engine.h" />
+    <ClInclude Include="File.h" />
     <ClInclude Include="Kamikadze.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="RenderManager.h" />
     <ClInclude Include="SDLExceptions.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="Shooter.h" />
+    <ClInclude Include="UpdateManager.h" />
     <ClInclude Include="World.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

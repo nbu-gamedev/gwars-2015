@@ -1,19 +1,42 @@
 #include "World.h"
-#include "Engine.h"
+#include "Actor.h"
+#include "UpdateManager.h"
+#include "RenderManager.h"
 
-using namespace std;
-
-World::World(Engine* engine)
+World::World()
 {
-	this->engine = engine;
-	
-	enemies.push_back(leftSideEnemies);
-	enemies.push_back(rightSideEnemies);
-	enemies.push_back(topSideEnemies);
-	enemies.push_back(botSideEnemies);
 }
 
+World::World(UpdateManager* updateManager, RenderManager* renderManager)
+{
+	this->gameIsFinished = false;
+
+	this->updateManager = updateManager;
+	this->renderManager = renderManager;
+}
+
+void World::SetRenderManager(RenderManager* renderManager)
+{
+	this->renderManager = renderManager;
+}
+
+void World::SetUpdateManager(UpdateManager* renderManager)
+{
+	this->updateManager = updateManager;
+}
+
+void World::StartGame()
+{
+	// player->IsAlive()
+	while (true)
+	{
+		this->updateManager->Update();
+		this->renderManager->Render();
+	}
+}
 
 World::~World()
 {
+	delete this->renderManager;
+	delete this->updateManager;
 }

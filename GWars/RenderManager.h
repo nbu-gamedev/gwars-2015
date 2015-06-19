@@ -1,28 +1,21 @@
 #pragma once
 
-#include <string>
+#include "SDL.h"
 
-#include "Engine.h"
 #include "Actor.h"
-
-using namespace std;
-
-class Engine;
+#include "UpdateManager.h"
 
 class RenderManager
 {
 public:
-	RenderManager(Engine* engine, int width, int height);
+	RenderManager();
+	RenderManager(int width, int height);
 	~RenderManager();
-
-	void Render(Actor* actor);
-	void Render(string img);
+	
+	void Render();
+	void Render(Actor*);
 private:
-	Engine* engine;
-
 	SDL_Window* window;
 	SDL_Surface* screen;
-
-	SDL_Surface* LoadSurface(string path);
+	SDL_Renderer* renderer;
 };
-
