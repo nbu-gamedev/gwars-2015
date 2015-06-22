@@ -10,6 +10,7 @@ class Kamikadze : public Actor
 {
 public:
 	Kamikadze();
+	Kamikadze(int x, int y);
 	~Kamikadze();
 };
 

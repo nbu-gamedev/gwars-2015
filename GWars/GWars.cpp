@@ -3,14 +3,13 @@
 
 #include "SDL.h"
 
-#include "Settings.h"
 #include "World.h"
+
 #include "UpdateManager.h"
 #include "RenderManager.h"
-#include "Kamikadze.h"
+
 #include "SDLExceptions.h"
-#include "File.h"
-#include "Actor.h"
+#include "Constants.h"
 
 using namespace std;
 
@@ -22,9 +21,6 @@ void CatchFatalExceptions(exception& e)
 
 int main(int argc, char* args[])
 {
-	const int SCREEN_WIDTH = 640;
-	const int SCREEN_HEIGHT = 480;
-
 	World* world = new World();
 
 	try
@@ -36,9 +32,6 @@ int main(int argc, char* args[])
 		world->SetRenderManager(renderManager);
 
 		world->StartGame();
-		
-		Actor* pesho = new Actor();
-		Actor* gosho = new Actor();		
 
 		delete world;
 	}
@@ -49,6 +42,10 @@ int main(int argc, char* args[])
 	catch (SDLWindowCreateException& e)
 	{
 		CatchFatalExceptions(e);		
+	}
+	catch (SDLTextureImageNotFoundException& e)
+	{
+		CatchFatalExceptions(e);
 	}
 
 	delete world;

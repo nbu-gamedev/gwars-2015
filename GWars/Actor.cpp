@@ -1,19 +1,16 @@
 #include "Actor.h"
 
+#include "Constants.h"
+
 Actor::Actor()
 {
-	this->_x = 0;
-	this->_y = 0;
 }
 
-Actor::Actor(int x, int y, File* img)
+Actors Actor::GetType()
 {
-	this->_x = 0;
-	this->_y = 0;
-	this->_displayImage = img;
+	return this->type;
 }
 
 Actor::~Actor()
 {
-	delete this->_displayImage;
 }

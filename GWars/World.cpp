@@ -1,7 +1,11 @@
 #include "World.h"
-#include "Actor.h"
+
 #include "UpdateManager.h"
 #include "RenderManager.h"
+
+#include "Actor.h"
+#include "Player.h"
+#include "Kamikadze.h"
 
 World::World()
 {
@@ -27,11 +31,38 @@ void World::SetUpdateManager(UpdateManager* renderManager)
 
 void World::StartGame()
 {
-	// player->IsAlive()
+	SDL_Event e;
+	
+	Player* player = new Player(0, 0);
+
+	Actor* kami = new Kamikadze(150, 150);
+
+	//While application is running
 	while (true)
 	{
-		this->updateManager->Update();
-		this->renderManager->Render();
+		//Handle events on queue
+		while (SDL_PollEvent( &e ) != 0)
+		{
+			if(e.type == SDL_QUIT)
+			{
+				// TODO: Fix this, need to call destructors etc.
+				exit(-1);
+			}
+
+			this->updateManager->HandleEvent(player, e);
+		}
+
+		this->updateManager->MovePlayer(player);
+
+		this->updateManager->FollowPlayer(kami, player);
+
+		this->renderManager->Clear();
+
+		this->renderManager->Render(player);
+
+		this->renderManager->Render(kami);
+		
+		this->renderManager->Update();
 	}
 }
 

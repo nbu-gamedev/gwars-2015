@@ -34,6 +34,24 @@
     <Filter Include="Source Files\Game">
       <UniqueIdentifier>{c9419af9-f4ba-41e3-ba3e-d2435099be5d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Game\Managers">
+      <UniqueIdentifier>{570cf066-6b09-4b83-819a-44dbfe216a34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\Managers\Render Manager">
+      <UniqueIdentifier>{426cbc50-9f5a-43a3-a1e3-7bbd1aab45e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\Managers\Update Manager">
+      <UniqueIdentifier>{95ddf723-286b-4d0c-b7ea-1c41a40cd1ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Managers">
+      <UniqueIdentifier>{078161b9-c214-4db4-bb28-6a58ee4e3ced}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Managers\Update Manager">
+      <UniqueIdentifier>{c0585469-e882-41bb-b49a-6bb0b659fd72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Managers\Render Manager">
+      <UniqueIdentifier>{7eb6b2e2-511f-4795-bc06-82022123e669}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor.h">
@@ -51,19 +69,28 @@
     <ClInclude Include="SDLExceptions.h">
       <Filter>Header Files\Exceptions</Filter>
     </ClInclude>
-    <ClInclude Include="RenderManager.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
     <ClInclude Include="World.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Settings.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Header Files\Actors\Implementations</Filter>
     </ClInclude>
+    <ClInclude Include="RenderManager.h">
+      <Filter>Header Files\Game\Managers\Render Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Header Files\Game\Managers\Render Manager</Filter>
+    </ClInclude>
     <ClInclude Include="UpdateManager.h">
+      <Filter>Header Files\Game\Managers\Update Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Settings.h">
+      <Filter>Header Files\Game\Managers\Update Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Header Files\Game\Managers\Update Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Constants.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
   </ItemGroup>
@@ -81,20 +108,26 @@
     <ClCompile Include="Shooter.cpp">
       <Filter>Source Files\Actors\Implementations</Filter>
     </ClCompile>
-    <ClCompile Include="RenderManager.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Settings.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="World.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Source Files\Actors\Implementations</Filter>
     </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Source Files\Game\Managers\Render Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderManager.cpp">
+      <Filter>Source Files\Game\Managers\Render Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Settings.cpp">
+      <Filter>Source Files\Game\Managers\Update Manager</Filter>
+    </ClCompile>
     <ClCompile Include="UpdateManager.cpp">
-      <Filter>Source Files\Game</Filter>
+      <Filter>Source Files\Game\Managers\Update Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Source Files\Game\Managers\Update Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>Source Files\Game\Managers\Update Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

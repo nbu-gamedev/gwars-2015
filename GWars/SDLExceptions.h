@@ -12,10 +12,26 @@ struct SDLInitialiseException : public exception
 	}
 };
 
-struct SDLWindowCreateException: public exception
+struct SDLWindowCreateException : public exception
 {
 	virtual const char* what() const throw()
 	{
-		return "DL failed to create the game window!";
+		return "SDL failed to create the game window!";
+	}
+};
+
+struct SDLTextureImageNotFoundException : public exception
+{
+	virtual const char* what() const throw()
+	{
+		return "Texture image not not found!";
+	}
+};
+
+struct SDLTextureCreationException : public exception
+{
+	virtual const char* what() const throw()
+	{
+		return "Texture image not not found!";
 	}
 };

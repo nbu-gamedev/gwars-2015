@@ -1,14 +1,20 @@
 #pragma once
 
-#include "File.h"
+#include <string>
+
+#include "Constants.h"
+
+using namespace std;
 
 class Actor
 {
 public:
 	Actor();
-	Actor(int x, int y, File* img);
 	~Actor();
 
+	Actors GetType();
+
 	int _x, _y;
-	File* _displayImage;
+protected:
+	Actors type;
 };
